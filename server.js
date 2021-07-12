@@ -28,6 +28,6 @@ const server = net.createServer(function (client) {
   client.write("Hello");
 });
 
-server.listen(env.process.SERVER_PORT00, function () {
+server.listen(env.process.SERVER_PORT, function () {
   console.log("Server listening for connection");
 });
