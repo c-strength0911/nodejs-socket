@@ -1,0 +1,15 @@
+{
+  "name": "socket-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start:client": "node client.js",
+    "start:server": "node server.js"
+  },
+  "author": "Shin Woo Choi",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
+}
