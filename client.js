@@ -4,7 +4,7 @@ const { env } = require('process');
 
 dotenv.config();
 
-const client = net.connect({host: env.process.SERVER_HOST, port: env.process.SERVER_PORT}, function(){
+const client = net.connect({host: process.env.SERVER_HOST, port: process.env.SERVER_PORT}, function(){
     console.log('Client connected');
     client.write('Some Data \r\n');
 });

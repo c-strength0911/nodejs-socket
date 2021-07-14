@@ -12,7 +12,7 @@ const server = net.createServer(function (client) {
   clientList.push(client);
 
   client.on("data", function (data) {
-    console.log("Client sent " + data.toString());
+    console.log("Client sent " + data.toString().trim());
     for(let i=0; i<clientList.length; i++) {
       if(client !== clientList[i]) {
         clientList[i].write(data);
@@ -28,6 +28,6 @@ const server = net.createServer(function (client) {
   client.write("Hello");
 });
 
-server.listen(env.process.SERVER_PORT, function () {
+server.listen(process.env.SERVER_PORT, function () {
   console.log("Server listening for connection");
 });
