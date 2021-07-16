@@ -20,10 +20,23 @@ const server = net.createServer(function (client) {
     }
   });
 
-  client.on("end", function () {
-    console.log("Client disconnected");
-    
+  client.on("error", function (err) {
+    console.log("🐛 Client Error");
+    console.error(err);
   });
+
+  client.on("end", function() {
+    console.log("client end");
+  });
+
+  client.on("close", function() {
+    for(let i=0; i<clientList.length; i++) {
+      if(client !== clientList[i]) {
+        clientList.splice(i,1);
+      }
+    }
+    console.log("client close");
+  })
 
   client.write("Hello");
 });

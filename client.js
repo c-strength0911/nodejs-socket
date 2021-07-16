@@ -1,6 +1,5 @@
 const net = require('net');
 const dotenv = require('dotenv');
-const { env } = require('process');
 
 dotenv.config();
 
@@ -16,6 +15,11 @@ client.on('data', function(data){
 client.on('end', function(){
     console.log('Client disconnected');
 });
+
+client.on("error", function(err){
+    console.log("🐛 Client Error");
+    console.error(err);
+})
 
 process.stdin.resume();
 
