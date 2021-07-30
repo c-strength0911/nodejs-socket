@@ -9,7 +9,7 @@ const LOG_S = "==========================================\n";
 const LOG_E = "\n==========================================";
 const HIDDEN_STR = "hidden"; 
 
-const hiddenAll = () =>{
+const hiddenAll = () => {
     nicknameBox.setAttribute(HIDDEN_STR, "");
     chatBox.setAttribute(HIDDEN_STR, "");
 };
@@ -32,10 +32,10 @@ const initNickName = () => {
             alert("닉네임은 최소 두 글자 이상이어야 합니다 -_-;;;");
             return;
         }
-
+            
         socket.emit("setNickname", { nickname: nicknameInput.value });
         initChat();
-    })
+    });
 
     nicknameBox.removeAttribute(HIDDEN_STR);
 };
@@ -78,21 +78,23 @@ const initChat = () => {
         }
     });
 
+    const renderChatParagraph =  (htmlTagStr) => {
+        const msgParagraph = document.createElement("p");
+        msgParagraph.innerHTML = `htmlTagStr`;
+        chatMsg.appendChild(msgParagraph);
+    };
+
     /**
      * socket io event 
      */
     socket.on("joinUser", (data) => {
         console.log(data);   
-        const msgParagraph = document.createElement("p");
-        msgParagraph.innerHTML = `<b>${data.nickname}</b>님이 접속했습니다.`;
-        chatMsg.appendChild(msgParagraph);
+        renderChatParagraph(`<b>${data.nickname}</b>님이 접속했습니다.`);
     });
-    
+
     socket.on("sendMsg", (data) => {
         console.log(data);   
-        const msgParagraph = document.createElement("p");
-        msgParagraph.innerHTML = `<b>${data.from}</b> ${data.msg}`;
-        chatMsg.appendChild(msgParagraph);
+        renderChatParagraph(`<b>${data.from}</b> ${data.msg}`);
     });
 
     chatBox.removeAttribute(HIDDEN_STR);

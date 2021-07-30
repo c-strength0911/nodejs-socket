@@ -36,14 +36,12 @@ io.on("connection", (socket) => {
         socket.broadcast.emit("joinUser", { nickname: data.nickname});
     });
 
-
     /**
      * Chat Setting
      */
     socket.on("sendMsg", (data) => {
-        console.log("==== SendMsg Event ====");
+        /* send msg broadcast */
         socket.broadcast.emit("sendMsg", { msg: data.msg, from: socket.nickname});
-        
     });
 
     /**
@@ -51,5 +49,9 @@ io.on("connection", (socket) => {
      */
     socket.on("close", () => {
         delete clientMap[socket.id];
+
+        /* send msg broadcast */
+        socket.broadcast.emit("leaveUser", { from: socket.nickname});
     });
+
 });
