@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="serverNoti">
+    
+    </div>
+
+    <!-- 닉네임 세팅 컴포넌트 -->
+    <div id="nicknameBox" hidden>
+        <h3>닉네임을 세팅해주세요.</h3>
+        <form id="nicknameForm">
+            <input id="nicknameInput" type="text"/> 
+            <button type="submit">버튼</button>
+        </form>
+    </div>
+
+    <!-- 채팅 컴포넌트 -->
+    <div id="chatBox" hidden>
+        <h3>채팅</h3>
+        <div id="chatMsg">
+        
+        </div>
+        <form id="chatForm">
+            <textarea id="chatTextarea"></textarea>
+            <button type="submit">버튼</button>
+        </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
