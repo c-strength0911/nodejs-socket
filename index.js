@@ -33,6 +33,7 @@ io.on("connection", (socket) => {
      */
     socket.on("setNickname", (data) => {
         socket.nickname = data.nickname;
+        socket.broadcast.emit("joinUser", { nickname: data.nickname});
     });
 
 

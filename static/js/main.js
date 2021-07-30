@@ -12,7 +12,7 @@ const HIDDEN_STR = "hidden";
 const hiddenAll = () =>{
     nicknameBox.setAttribute(HIDDEN_STR, "");
     chatBox.setAttribute(HIDDEN_STR, "");
-}
+};
 
 /**
  * NickName Setting
@@ -81,6 +81,13 @@ const initChat = () => {
     /**
      * socket io event 
      */
+    socket.on("joinUser", (data) => {
+        console.log(data);   
+        const msgParagraph = document.createElement("p");
+        msgParagraph.innerHTML = `<b>${data.nickname}</b>님이 접속했습니다.`;
+        chatMsg.appendChild(msgParagraph);
+    });
+    
     socket.on("sendMsg", (data) => {
         console.log(data);   
         const msgParagraph = document.createElement("p");
