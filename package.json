@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --exec node index.js",
     "start:client": "node client.js",
-    "start:server": "node server.js"
+    "start:server": "node server.js",
+    "test": "jest"
   },
   "author": "Shin Woo Choi",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "socket.io": "^4.1.3"
   },
   "devDependencies": {
+    "jest": "^27.0.6",
     "nodemon": "^2.0.12"
   }
 }

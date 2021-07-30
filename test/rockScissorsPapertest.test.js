@@ -4,7 +4,7 @@ const PAPER_STR = 'paper';
 const DRAW_STR = 'draw' //=> 승부가 안남
 
 const judgeGame = (inputList) => {
-
+    
 }
 
 test('가위바위보 테스트1', () => {
