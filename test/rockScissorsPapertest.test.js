@@ -3,7 +3,26 @@ const SCISSORS_STR = "scissors";
 const PAPER_STR = "paper";
 const DRAW_STR = "draw"; //=> 승부가 안남
 
-const judgeGame = inputList => {};
+const judgeGame = inputList => {
+  let winner = 0;
+  winner += inputList.includes(SCISSORS_STR) ? 1 : 0;
+  winner += inputList.includes(ROCK_STR) ? 2 : 0;
+  winner += inputList.includes(PAPER_STR) ? 4 : 0;
+  switch (winner) {
+    case 3:
+      return ROCK_STR;
+    case 5:
+      return SCISSORS_STR;
+    case 6:
+      return PAPER_STR;
+    case 0:
+    case 1:
+    case 2:
+    case 4:
+    case 7:
+      return DRAW_STR;
+  }
+};
 
 test("가위바위보 테스트1", () => {
   //given
